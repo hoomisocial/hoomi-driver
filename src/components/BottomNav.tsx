@@ -3,7 +3,7 @@ import { Bike, Navigation, MessageCircle, User } from "lucide-react";
 
 const tabs = [
   { path: "/earnings", icon: Bike, label: "Earnings" },
-  { path: "/jobs", icon: Navigation, label: "Jobs" },
+  { path: "/home", icon: Navigation, label: "Jobs" },
   { path: "/chat", icon: MessageCircle, label: "Chat" },
   { path: "/account", icon: User, label: "Account" },
 ];
@@ -13,7 +13,7 @@ const BottomNav = () => {
   const navigate = useNavigate();
 
   // Hide on certain pages
-  if (["/permissions", "/job-offer"].includes(location.pathname)) return null;
+  if (["/permissions", "/job-offer", "/active-trip"].includes(location.pathname)) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border safe-bottom z-50">

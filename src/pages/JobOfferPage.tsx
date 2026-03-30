@@ -28,7 +28,7 @@ const JobOfferPage = () => {
     if (sliderX > maxSlide * 0.7) {
       setSliderX(maxSlide);
       setAccepted(true);
-      setTimeout(() => navigate("/jobs"), 1500);
+      setTimeout(() => navigate("/active-trip"), 1500);
     } else {
       setSliderX(0);
     }
@@ -129,7 +129,7 @@ const JobOfferPage = () => {
         </div>
 
         <button
-          onClick={() => navigate("/jobs")}
+          onClick={() => navigate("/home")}
           className="w-full text-center text-muted-foreground font-medium mt-3 py-2"
         >
           Decline
