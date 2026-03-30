@@ -329,7 +329,9 @@ const RegisterStep2Page = () => {
               <p className="font-bold text-foreground">{doc.title}</p>
               <p className="text-sm text-muted-foreground">{doc.subtitle}</p>
             </div>
-            {!doc.uploaded && (
+            {doc.uploaded ? (
+              <span className="text-sm font-semibold text-[hsl(var(--success))] shrink-0">Uploaded</span>
+            ) : (
               <Upload size={20} className="text-foreground shrink-0" />
             )}
           </button>
