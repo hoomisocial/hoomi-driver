@@ -8,6 +8,7 @@ import PermissionsPage from "./pages/PermissionsPage";
 import EarningsPage from "./pages/EarningsPage";
 import JobsPage from "./pages/JobsPage";
 import AccountPage from "./pages/AccountPage";
+import MyVehiclePage from "./pages/MyVehiclePage";
 import JobOfferPage from "./pages/JobOfferPage";
 import ActiveTripPage from "./pages/ActiveTripPage";
 import HomePage from "./pages/HomePage";
