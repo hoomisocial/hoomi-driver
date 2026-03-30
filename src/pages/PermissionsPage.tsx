@@ -128,6 +128,8 @@ const PermissionsPage = () => {
               navigate("/register/step-1");
             } else if (!reg.step2Complete) {
               navigate("/register/step-2");
+            } else if (!reg.step3Complete) {
+              navigate("/register/step-3");
             } else {
               navigate("/home");
             }
