@@ -318,9 +318,11 @@ const RegisterStep2Page = () => {
                 : "border-border bg-card"
             }`}
           >
-            <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center shrink-0">
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 ${
+              doc.uploaded ? "bg-[hsl(var(--success))]/10" : "bg-muted"
+            }`}>
               {doc.uploaded ? (
-                <CheckCircle2 size={24} className="text-primary" />
+                <CheckCircle2 size={24} className="text-[hsl(var(--success))]" />
               ) : (
                 <Camera size={22} className="text-muted-foreground" />
               )}
