@@ -54,7 +54,7 @@ const PermissionsPage = () => {
           <span className="text-primary font-extrabold text-3xl">H</span>
         </div>
         <h1 className="text-2xl font-bold text-primary-foreground">Hoomi Partner</h1>
-        <p className="text-primary-foreground/70 text-sm mt-1">Mini Program</p>
+        <p className="text-primary-foreground/70 text-sm mt-1">Micro App</p>
       </div>
 
       {/* Permissions */}
