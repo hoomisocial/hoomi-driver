@@ -13,7 +13,7 @@ const BottomNav = () => {
   const navigate = useNavigate();
 
   // Hide on certain pages
-  if (["/permissions", "/job-offer", "/active-trip", "/my-vehicle"].includes(location.pathname)) return null;
+  if (["/permissions", "/job-offer", "/active-trip", "/my-vehicle"].includes(location.pathname) || location.pathname.startsWith("/register")) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border safe-bottom z-50">
