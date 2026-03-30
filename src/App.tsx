@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import BottomNav from "./components/BottomNav";
 import PermissionsPage from "./pages/PermissionsPage";
+import RegisterStep1Page from "./pages/RegisterStep1Page";
+import RegisterStep2Page from "./pages/RegisterStep2Page";
 import EarningsPage from "./pages/EarningsPage";
 import JobsPage from "./pages/JobsPage";
 import AccountPage from "./pages/AccountPage";
@@ -27,6 +29,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Navigate to="/permissions" replace />} />
             <Route path="/permissions" element={<PermissionsPage />} />
+            <Route path="/register/step-1" element={<RegisterStep1Page />} />
+            <Route path="/register/step-2" element={<RegisterStep2Page />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/earnings" element={<EarningsPage />} />
             <Route path="/jobs" element={<JobsPage />} />

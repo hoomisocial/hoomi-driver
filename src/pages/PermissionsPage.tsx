@@ -122,7 +122,16 @@ const PermissionsPage = () => {
       {/* CTA */}
       <div className="px-5 pb-8 bg-card max-w-[430px] mx-auto w-full">
         <button
-          onClick={() => navigate("/earnings")}
+          onClick={() => {
+            const reg = JSON.parse(localStorage.getItem("hoomi_registration") || "{}");
+            if (!reg.step1Complete) {
+              navigate("/register/step-1");
+            } else if (!reg.step2Complete) {
+              navigate("/register/step-2");
+            } else {
+              navigate("/home");
+            }
+          }}
           className="w-full gradient-purple text-primary-foreground font-bold text-lg py-4 rounded-2xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
         >
           <Circle size={18} />
