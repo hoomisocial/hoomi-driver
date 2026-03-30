@@ -314,7 +314,7 @@ const RegisterStep2Page = () => {
             onClick={() => !doc.uploaded && openDocument(doc.id)}
             className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all ${
               doc.uploaded
-                ? "border-primary/20 bg-secondary/30"
+                ? "border-[hsl(var(--success))]/30 bg-[hsl(var(--success))]/5"
                 : "border-border bg-card"
             }`}
           >
