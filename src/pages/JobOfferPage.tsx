@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapPin, Circle, Crosshair, Bike } from "lucide-react";
+import { useMapbox } from "@/hooks/useMapbox";
 
 const JobOfferPage = () => {
   const navigate = useNavigate();
