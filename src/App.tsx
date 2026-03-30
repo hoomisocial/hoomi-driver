@@ -9,6 +9,8 @@ import EarningsPage from "./pages/EarningsPage";
 import JobsPage from "./pages/JobsPage";
 import AccountPage from "./pages/AccountPage";
 import JobOfferPage from "./pages/JobOfferPage";
+import ActiveTripPage from "./pages/ActiveTripPage";
+import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
 
