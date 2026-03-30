@@ -28,7 +28,7 @@ const JobOfferPage = () => {
     if (sliderX > maxSlide * 0.7) {
       setSliderX(maxSlide);
       setAccepted(true);
-      setTimeout(() => navigate("/jobs"), 1500);
+      setTimeout(() => navigate("/active-trip"), 1500);
     } else {
       setSliderX(0);
     }
