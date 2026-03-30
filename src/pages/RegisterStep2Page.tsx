@@ -124,7 +124,7 @@ const RegisterStep2Page = () => {
           step2Complete: true,
         })
       );
-      navigate("/home");
+      navigate("/register/step-3");
     }
   };
 
@@ -314,13 +314,15 @@ const RegisterStep2Page = () => {
             onClick={() => !doc.uploaded && openDocument(doc.id)}
             className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all ${
               doc.uploaded
-                ? "border-primary/20 bg-secondary/30"
+                ? "border-[hsl(var(--success))]/30 bg-[hsl(var(--success))]/5"
                 : "border-border bg-card"
             }`}
           >
-            <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center shrink-0">
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 ${
+              doc.uploaded ? "bg-[hsl(var(--success))]/10" : "bg-muted"
+            }`}>
               {doc.uploaded ? (
-                <CheckCircle2 size={24} className="text-primary" />
+                <CheckCircle2 size={24} className="text-[hsl(var(--success))]" />
               ) : (
                 <Camera size={22} className="text-muted-foreground" />
               )}
@@ -329,7 +331,9 @@ const RegisterStep2Page = () => {
               <p className="font-bold text-foreground">{doc.title}</p>
               <p className="text-sm text-muted-foreground">{doc.subtitle}</p>
             </div>
-            {!doc.uploaded && (
+            {doc.uploaded ? (
+              <span className="text-sm font-semibold text-[hsl(var(--success))] shrink-0">Uploaded</span>
+            ) : (
               <Upload size={20} className="text-foreground shrink-0" />
             )}
           </button>
