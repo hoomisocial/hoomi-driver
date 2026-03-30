@@ -47,6 +47,9 @@ const AccountPage = () => {
             {section.items.map((item, j) => (
               <button
                 key={item.label}
+                onClick={() => {
+                  if (item.label === "My Vehicle") navigate("/my-vehicle");
+                }}
                 className={`w-full flex items-center justify-between px-5 py-4 text-left active:bg-muted/50 transition-colors ${
                   j < section.items.length - 1 ? "border-b border-border" : ""
                 }`}
