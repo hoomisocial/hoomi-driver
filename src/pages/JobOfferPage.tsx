@@ -129,7 +129,7 @@ const JobOfferPage = () => {
         </div>
 
         <button
-          onClick={() => navigate("/jobs")}
+          onClick={() => navigate("/home")}
           className="w-full text-center text-muted-foreground font-medium mt-3 py-2"
         >
           Decline
