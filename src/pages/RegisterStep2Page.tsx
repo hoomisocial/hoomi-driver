@@ -124,7 +124,7 @@ const RegisterStep2Page = () => {
           step2Complete: true,
         })
       );
-      navigate("/home");
+      navigate("/register/step-3");
     }
   };
 
