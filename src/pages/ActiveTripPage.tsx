@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapPin, Circle, MessageCircle, Phone, Crosshair } from "lucide-react";
+import { useMapbox } from "@/hooks/useMapbox";
 
 type TripState = "heading_to_pickup" | "waiting" | "heading_to_dropoff";
 
@@ -48,13 +49,14 @@ const ActiveTripPage = () => {
   const trip = dummyTrip;
   const config = stateConfig[tripState];
 
+  useMapbox({ containerId: "trip-map", zoom: 15 });
+
   const handleMainAction = () => {
     if (tripState === "heading_to_pickup") {
       setTripState("waiting");
     } else if (tripState === "waiting") {
       setTripState("heading_to_dropoff");
     } else {
-      // Complete drop off → go back to home
       navigate("/home");
     }
   };
@@ -76,16 +78,7 @@ const ActiveTripPage = () => {
   return (
     <div className="min-h-screen max-w-[430px] mx-auto flex flex-col">
       {/* Map area */}
-      <div className="flex-1 relative bg-muted min-h-[45vh]">
-        {/* Grid pattern placeholder for map */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23999' stroke-width='.5' fill='none'/%3E%3C/svg%3E")`,
-          }}
-        />
-
-        {/* Mapbox container - will be used when API key is provided */}
+      <div className="flex-1 relative min-h-[45vh]">
         <div id="trip-map" className="absolute inset-0" />
 
         {/* Online badge */}
@@ -99,18 +92,12 @@ const ActiveTripPage = () => {
         </div>
 
         {/* Map pin label */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center pointer-events-none">
           <div className={`${mapLabelBg} text-white px-4 py-1.5 rounded-lg text-sm font-semibold shadow-md`}>
             {mapLabel}
           </div>
-          <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-success mt-[-1px]" />
           <MapPin size={28} className="text-success mt-1" />
         </div>
-
-        {/* Route line for heading to dropoff */}
-        {tripState === "heading_to_dropoff" && (
-          <div className="absolute top-[38%] left-1/2 w-1 h-[30%] bg-primary rounded-full z-[5]" />
-        )}
 
         {/* Location button */}
         <button className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-card text-foreground flex items-center justify-center shadow-lg z-10">
@@ -152,7 +139,6 @@ const ActiveTripPage = () => {
         {/* Route info */}
         <div className="p-4 rounded-2xl border border-border">
           {tripState === "heading_to_pickup" ? (
-            /* Heading to pickup - show only pickup with distance */
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
                 <MapPin size={18} className="text-success" />
@@ -166,7 +152,6 @@ const ActiveTripPage = () => {
               </div>
             </div>
           ) : (
-            /* Waiting / Heading to dropoff - show pickup + dropoff */
             <div className="flex items-start gap-3">
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center">
@@ -196,7 +181,7 @@ const ActiveTripPage = () => {
           {mainButtonLabel}
         </button>
 
-        {/* Cancel button - not shown during heading to dropoff */}
+        {/* Cancel button */}
         {tripState !== "heading_to_dropoff" && (
           <button
             onClick={handleCancel}

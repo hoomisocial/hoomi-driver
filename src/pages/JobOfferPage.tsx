@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MapPin, Circle, Crosshair, Bike } from "lucide-react";
+import { useMapbox } from "@/hooks/useMapbox";
 
 const JobOfferPage = () => {
   const navigate = useNavigate();
@@ -34,13 +35,13 @@ const JobOfferPage = () => {
     }
   };
 
+  useMapbox({ containerId: "offer-map", zoom: 14 });
+
   return (
     <div className="min-h-screen max-w-[430px] mx-auto flex flex-col">
-      {/* Map placeholder */}
-      <div className="flex-1 relative bg-muted">
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23999' stroke-width='.5' fill='none'/%3E%3C/svg%3E")`,
-        }} />
+      {/* Map */}
+      <div className="flex-1 relative">
+        <div id="offer-map" className="absolute inset-0" />
         {/* Online badge */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 z-10">
           <div className="flex items-center gap-2 bg-success text-success-foreground px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg">
@@ -51,7 +52,7 @@ const JobOfferPage = () => {
           </div>
         </div>
         {/* Location button */}
-        <button className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
+        <button className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-card text-foreground flex items-center justify-center shadow-lg z-10">
           <Crosshair size={22} />
         </button>
       </div>
