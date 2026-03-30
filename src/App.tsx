@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import BottomNav from "./components/BottomNav";
 import PermissionsPage from "./pages/PermissionsPage";
+import RegisterStep1Page from "./pages/RegisterStep1Page";
+import RegisterStep2Page from "./pages/RegisterStep2Page";
 import EarningsPage from "./pages/EarningsPage";
 import JobsPage from "./pages/JobsPage";
 import AccountPage from "./pages/AccountPage";
