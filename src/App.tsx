@@ -26,11 +26,13 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Navigate to="/permissions" replace />} />
             <Route path="/permissions" element={<PermissionsPage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/earnings" element={<EarningsPage />} />
             <Route path="/jobs" element={<JobsPage />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/job-offer" element={<JobOfferPage />} />
+            <Route path="/active-trip" element={<ActiveTripPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <BottomNav />
